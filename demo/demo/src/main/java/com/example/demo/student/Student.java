@@ -4,10 +4,15 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Entity // For hibernate.
-@Table // For table in database.
+@Entity // For hibernate or mapping the class in database.
+@Table // For mapping it to a table in database.
 public class Student {
 
+    // The above written annotations and the below written annotations
+    // generate a create table command by mapping the Student class. The
+    // primary key will be id and the others will be mapped too. After this step,
+    // I'll add the database and run the application, so the command will create a
+    // table in the database.
     @Id
     @SequenceGenerator(
             name = "student_sequence",
@@ -25,7 +30,7 @@ public class Student {
     private String email;
     private LocalDate dob;
     @Transient
-    private Integer age; // No need to be a column in database
+    private Integer age; // No need to be a column in database/
 
     public Student() {
 
