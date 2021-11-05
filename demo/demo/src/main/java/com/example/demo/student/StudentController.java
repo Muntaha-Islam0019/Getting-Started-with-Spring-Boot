@@ -30,10 +30,20 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
-    // Delete by ID
+    // Delete by ID.
     // The ID will be provided as a path of the url, for instance, DELETE http ... student/1
     @DeleteMapping(path = "{studentId}")
     public void deleteStudent(@PathVariable("studentId") Long studentId) {
         studentService.deleteStudent(studentId);
+    }
+
+    //Update students.
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(
+            @PathVariable("studentId") Long studentId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email
+    ) {
+        studentService.updateStudent(studentId, name, email);
     }
 }
