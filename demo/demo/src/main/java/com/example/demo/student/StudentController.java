@@ -29,4 +29,11 @@ public class StudentController {
     public void registerNewStudent(@RequestBody Student student) { // Take the request and map it into student.
         studentService.addNewStudent(student);
     }
+
+    // Delete by ID
+    // The ID will be provided as a path of the url, for instance, DELETE http ... student/1
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId) {
+        studentService.deleteStudent(studentId);
+    }
 }
